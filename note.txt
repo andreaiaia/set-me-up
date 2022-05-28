@@ -1,0 +1,6 @@
+TODO:
+
+aggiungi script per Fira code (eseguito con il comando sudo sh ./install-fira.sh)
+Per ora ho installato:
+- Terminator (yay -S terminator-git -> 2 -> 1 -> N)
+- zsh-autosuggestions (yay -S zsh-autosuggestions-git -> N)
