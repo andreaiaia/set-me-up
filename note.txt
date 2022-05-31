@@ -3,4 +3,8 @@ TODO:
 aggiungi script per Fira code (eseguito con il comando sudo sh ./install-fira.sh)
 Per ora ho installato:
 - Terminator (yay -S terminator-git -> 2 -> 1 -> N)
-- zsh-autosuggestions (yay -S zsh-autosuggestions-git -> N)
+- zsh-autosuggestions (npm install -g zsh-autosuggestions)
+- VS Code (sudo pacman -S code)
+- nvm (yay -S nvm)
+- node e npm (nvm install 18.1.0)
+
