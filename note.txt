@@ -8,3 +8,7 @@ Per ora ho installato:
 - nvm (yay -S nvm)
 - node e npm (nvm install 18.1.0)
 
+to automatically select the irst package in yay do
+yay -S package
+for more info check here
+https://github.com/Jguer/yay/issues/1033
