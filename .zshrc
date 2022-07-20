@@ -98,6 +98,18 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Personal Functions 
+
+# Function to run once a week to update all brew downloaded software
+# and have a complete log while doin' it
+function brewWeekly() {
+    brew update; echo;
+    brew outdated; echo;
+    brew upgrade;
+    brew cleanup --prune=0 -s; echo;
+    brew doctor -v; echo;
+}
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
