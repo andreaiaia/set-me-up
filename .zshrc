@@ -98,24 +98,11 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Personal Functions 
-
-# Function to run once a week to update all brew downloaded software
-# and have a complete log while doin' it
-function brewWeekly() {
-    brew update; echo;
-    brew outdated; echo;
-    brew upgrade;
-    brew cleanup --prune=0 -s; echo;
-    brew doctor -v; echo;
-}
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
+
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sussy="sudo"
@@ -123,3 +110,43 @@ alias ts="ts() {tsc $1 && node $1;};ts()"
 alias rm="rm -i"
 alias rf="rf -rfi"
 alias unibo="ssh andrea.bianchi20@donprocopio.cs.unibo.it"
+alias k="kubectl"
+alias tiramisu="docker compose up"
+alias yd="yarn dev"
+alias post="curl -X POST"
+alias docker rmexited ="docker rm $(docker ps -a -q -f status=exited)"
+
+# User Functions
+
+# release in production in an orderly way
+function release() {
+    git switch main; echo;
+    git pull; echo;
+    git tag release-$1 && git push && git push --tags; echo;
+}
+
+# make new branch from main regardless of current branch
+function mkbranch() {
+    git switch main; echo;
+    git pull; echo;
+    git switch -c $1; echo;
+    gpsup; echo;
+}
+
+# update the current branch with changes from main
+function forward() {
+    branch_name=$(git branch --show-current);
+    git switch main; echo;
+    git pull; echo;
+    git switch $branch_name; echo;
+    git merge main; echo;
+}
+
+# update brew packages routine
+function brewWeekly() {
+    brew update; echo;
+    brew outdated; echo;
+    brew upgrade;
+    brew cleanup --prune=0 -s; echo;
+    brew doctor -v; echo;
+}
