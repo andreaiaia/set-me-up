@@ -114,7 +114,7 @@ alias k="kubectl"
 alias tiramisu="docker compose up"
 alias yd="yarn dev"
 alias post="curl -X POST"
-alias docker rmexited ="docker rm $(docker ps -a -q -f status=exited)"
+alias docker rum ="docker run --rm"
 
 # User Functions
 
