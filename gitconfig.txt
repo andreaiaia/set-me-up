@@ -1,0 +1,14 @@
+[user]
+	name = Andrea Bianchi
+	email = bianan96@gmail.com
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[fetch]
+	prune = true
+[pull]
+	rebase = false
+[alias]
+	cleanup = !git branch --format %(refname:short) %(upstream:track) | awk  $2 == \"[gone]\" { print $1 } | xargs -r git branch -D
+	sync = !git switch main && git pull --prune && git cleanup
