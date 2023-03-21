@@ -158,3 +158,9 @@ function findPort() {
     echo "running on port " $1 ":"; echo;
     sudo lsof -t -i:$1; echo;
 }
+
+# function to make file executable
+function executable() {
+    chmod u+x $1;
+    echo $1 "is now executable"; echo;
+}
