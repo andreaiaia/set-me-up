@@ -1,8 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+# brew path
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/sbin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -76,7 +78,6 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-	zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -115,7 +116,7 @@ alias k="kubectl"
 alias tiramisu="docker compose up"
 alias yd="yarn dev"
 alias post="curl -X POST"
-alias docker rum ="docker run --rm"
+alias docker_rum="docker run --rm"
 
 # User Functions
 
@@ -150,4 +151,10 @@ function brewWeekly() {
     brew upgrade;
     brew cleanup --prune=0 -s; echo;
     brew doctor -v; echo;
+}
+
+# find who is using ports 3000 and 3001 (usually node)
+function findPort() {
+    echo "running on port " $1 ":"; echo;
+    sudo lsof -t -i:$1; echo;
 }
